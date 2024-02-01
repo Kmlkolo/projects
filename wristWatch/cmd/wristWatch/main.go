@@ -1,3 +1,4 @@
+//main.go
 package main
 
 import (
@@ -7,52 +8,35 @@ import (
 
 type Mode uint8
 var m Mode
-
 const (
 	ModeClock     Mode = iota
 	ModeStopwatch Mode = 1
 	ModeTimer     Mode = 2
 )
 
-type Display struct {
-	ModeName string
-	TimeVal time.Time //Time?
-}
-
-// var display Display = Display{
-// 	Mode: [3]string{"Clock", "Stopwatch", "Timer"},
-// 	Time: time.Time{},
-// }
-
 type Watch struct {
 	Clock     Display
 	Stopwatch Display
 	Timer     Display
-}
+}	
+//display.go
+type Display struct {
+	ModeName string
+	TimeVal time.Time //Time?
+}	
+
+// 	Mode: [3]string{"Clock", "Stopwatch", "Timer"},	
+// 	Time: time.Time{},
+// }
 
 const Watch.Clock.Display.ModeName = "Clock"
 var tv0 Watch.Clock.Display.TimeVal = "00:00:00"
-const Watch.Stopwatch.Display.ModeName = "Stopwatch-gittest"
+const Watch.Stopwatch.Display.ModeName = "Stopwatch"
 var tv1 Watch.Stopwatch.Display.TimeVal = "00:00:00"
 const Watch.Timer.Display.ModeName = "Timer"
 var tv2 Watch.Timer.Display.TimeVal = "00:00:00"
 
-// func (t Time) Clock() (hour, min, sec int)
-
-type Button uint8
-var b Button
-
-const (
-	Button1Start Button = iota
-	Button1Stop  Button
-	Button1Reset Button
-	Button2Mode  Button
-	Button2Set   Button
-	Button3Plus  Button
-	Button4Minus Button
-)
-
-
+//actions.go
 func (w Watch) Mode() {
 	//gdzie ustawić wartości początkowe/fabryczne Mode:=0 - nie na początku funkcji przecież
 	Mode++
@@ -68,15 +52,49 @@ func (w Watch) Mode() {
 			Watch.Timer.Display.TimeVal = ""
 		}
 	}
-
-func (d *Watch.Stopwatch.Display) Start() {
-	time.Since() //Start counting
 	
-}
+	func (d *Watch.Stopwatch.Display) Start() {
+		time.Since() //Start counting
+		
+	}
+	
+	func (d *Display) Start() {
+		time.Start()
+	}
+	
+	type Starter interface { //Start robi zupełnie co innego zależnie od trybu, co jest wspólne?
+		Start()
+	}
+	
+	type Stopwatch interface {
+		Starter()
+		Stopper()
+		Resetter()
+	}
+	
+	type Timer interface {
+		Starter()
+		Stopper()
+		Resetter()
+		Setter()
+	}
+	
+// var display Display = Display{
+// func (t Time) Clock() (hour, min, sec int)
 
-func (d *Display) Start() {
-	time.Start()
-}
+//buttons.go
+type Button uint8
+var b Button
+
+const (
+	Button1Start Button = iota
+	Button1Stop  Button
+	Button1Reset Button
+	Button2Mode  Button
+	Button2Set   Button
+	Button3Plus  Button
+	Button4Minus Button
+)	
 
 func (w Watch) Snap(b Button) {
 	b := fmt.Scanln(&b) //? b bez wcześniejszej deklarcji 
@@ -104,23 +122,6 @@ func (w Watch) Snap(b Button) {
 		fmt.Println("Minus")
 		Minus()
 	}
-}
-
-type Starter interface { //Start robi zupełnie co innego zależnie od trybu, co jest wspólne?
-	Start()
-}
-
-type Stopwatch interface {
-	Starter()
-	Stopper()
-	Resetter()
-}
-
-type Timer interface {
-	Starter()
-	Stopper()
-	Resetter()
-	Setter()
 }
 
 func main() {
