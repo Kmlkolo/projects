@@ -1,44 +1,47 @@
 package actions
 
+import (
+	"wristWatch/internal/general"
+)
+
 func (w Watch) Mode() {
 	//gdzie ustawić wartości początkowe/fabryczne Mode:=0 - nie na początku funkcji przecież
-	Mode++
-	switch Mode {
-		case 0:
-			Watch.Clock.Display.ModeName = "Clock"
-			Watch.Clock.Display.TimeVal = ""
-		case 1:
-			Watch.Stopwatch.Display.ModeName = "Stopwatch"
-			Watch.Stopwatch.Display.TimeVal = "" //zachowana wartość z fmt.Sprint lub global var
-		case 2:
-			Watch.Timer.Display.ModeName = "Timer"
-			Watch.Timer.Display.TimeVal = ""
-		}
+	general.M++
+	switch general.M {
+	case general.ModeClock:
+		general.Watch.Clock.ModeName = "Clock"
+		general.Watch.Clock.TimeVal = ""
+	case general.ModeStopwatch:
+		general.Watch.Stopwatch.ModeName = "Stopwatch"
+		general.Watch.Stopwatch.TimeVal = "" //zachowana wartość z fmt.Sprint lub global var
+	case general.ModeTimer:
+		general.Watch.Timer.ModeName = "Timer"
+		general.Watch.Timer.TimeVal = ""
 	}
-	
-	func (d *Watch.Stopwatch.Display) Start() {
-		time.Since() //Start counting
-		
-	}
-	
-	func (d *Display) Start() {
-		time.Start()
-	}
-	
-	type Starter interface { //Start robi zupełnie co innego zależnie od trybu, co jest wspólne?
-		Start()
-	}
-	
-	type Stopwatch interface {
-		Starter()
-		Stopper()
-		Resetter()
-	}
-	
-	type Timer interface {
-		Starter()
-		Stopper()
-		Resetter()
-		Setter()
-	}
-	
+}
+
+func (d *display.Display) Start() {
+	time.Since() //Start counting
+
+}
+
+func (d *display.Display) Start() {
+	time.Start()
+}
+
+type Starter interface { //Start robi zupełnie co innego zależnie od trybu, co jest wspólne?
+	Start()
+}
+
+type Stopwatch interface {
+	Starter()
+	Stopper()
+	Resetter()
+}
+
+type Timer interface {
+	Starter()
+	Stopper()
+	Resetter()
+	Setter()
+}
