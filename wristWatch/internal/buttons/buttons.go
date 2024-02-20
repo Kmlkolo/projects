@@ -30,13 +30,13 @@ func (w Watch) Snap(b Button) {
 		Reset()
 	case Button2Mode:
 		//przeskakuje pomiędzy 0 1 2
-		fmt.Println("2Mode")
+		fmt.Println("Mode")
 		Mode()
 	case Button2Set:
-		fmt.Println("2Set")
+		fmt.Println("Set")
 		Set()
 	case Button3Plus:
-		fmt.Println("3Plus")
+		fmt.Println("Plus")
 		Plus()
 	case Button4Minus:
 		fmt.Println("Minus")
