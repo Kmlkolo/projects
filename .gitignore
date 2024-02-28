@@ -21,4 +21,9 @@
 go.work
 
 
-.*.go
+#.*.go - nie działa, tzn. Go też zaczął ignorować te pliki
+.gitignore
+#pliki tymczasowe do testów
+0tmp*
+#również ścieżki, np. .temp
+.*
