@@ -27,9 +27,9 @@ var defaultWatch Watch
 
 func init() {
 	defaultWatch.Clock.ModeName = "Clock"
-	defaultWatch.Clock.TimeVal = "00:00:00"
+	defaultWatch.Clock.TimeVal = time.Date(0, time.January, 0, 0, 0, 0, 0, time.UTC)
 	defaultWatch.Stopwatch.ModeName = "Stopwatch"
-	defaultWatch.Stopwatch.TimeVal = "00:00:00
+	defaultWatch.Stopwatch.TimeVal = time.Date(0, time.January, 0, 0, 0, 0, 0, time.UTC)
 	defaultWatch.Timer.ModeName = "Timer"
-	defaultWatch.Timer.TimeVal = "00:00:00"
+	defaultWatch.Timer.TimeVal = time.Date(0, time.January, 0, 0, 0, 0, 0, time.UTC)
 }
