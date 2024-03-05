@@ -14,7 +14,7 @@ const (
 
 type Display struct {
 	ModeName string
-	TimeVal  time.Time //Time?
+	TimeVal  time.Time
 }
 
 type Watch struct {
@@ -23,13 +23,22 @@ type Watch struct {
 	Timer     Display
 }
 
-var defaultWatch Watch
+type Watch2 struct {
+	Mode [3]int(0,1,2)
+	Display string
+	Clock time.Time.Format(time.TimeOnly)
+	Stopwatch time.Time.Format(time.TimeOnly)
+	TImer time.Time.Format(time.TimeOnly)
+}
+
+var W Watch
+var W2 Watch2
 
 func init() {
-	defaultWatch.Clock.ModeName = "Clock"
-	defaultWatch.Clock.TimeVal = time.Date(0, time.January, 0, 0, 0, 0, 0, time.UTC)
-	defaultWatch.Stopwatch.ModeName = "Stopwatch"
-	defaultWatch.Stopwatch.TimeVal = time.Date(0, time.January, 0, 0, 0, 0, 0, time.UTC)
-	defaultWatch.Timer.ModeName = "Timer"
-	defaultWatch.Timer.TimeVal = time.Date(0, time.January, 0, 0, 0, 0, 0, time.UTC)
+	W.Clock.ModeName = "Clock"
+	W.Clock.TimeVal = time.Date(0, time.January, 0, 0, 0, 0, 0, time.UTC)
+	W.Stopwatch.ModeName = "Stopwatch"
+	W.Stopwatch.TimeVal = time.Date(0, time.January, 0, 0, 0, 0, 0, time.UTC)
+	W.Timer.ModeName = "Timer"
+	W.Timer.TimeVal = time.Date(0, time.January, 0, 0, 0, 0, 0, time.UTC)
 }

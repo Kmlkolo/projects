@@ -11,5 +11,6 @@ import (
 // func (t Time) Clock() (hour, min, sec int)
 
 func main() {
-	fmt.Println()
+	// init/config of default values - here?
+	fmt.Println("main")
 }

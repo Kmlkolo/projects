@@ -1,23 +1,32 @@
 package buttons
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+	"wristWatch/internal/general"
+)
 
 type Button uint8
 
 var b Button
 
+// func init() { b = 1 }
+
 const (
 	Button1Start Button = iota
-	Button1Stop  Button
-	Button1Reset Button
-	Button2Mode  Button
-	Button2Set   Button
-	Button3Plus  Button
-	Button4Minus Button
+	Button1Stop  Button = 1
+	Button1Reset Button = 2
+	Button2Mode  Button = 3
+	Button2Set   Button = 4
+	Button3Plus  Button = 5
+	Button4Minus Button = 6
 )
 
-func (w Watch) Snap(b Button) {
-	b := fmt.Scanln(&b) //? b bez wcześniejszej deklarcji
+func (W general.Watch) Snap(b Button) {
+	var b1 string
+	fmt.Scanln(&b1)
+	b2, _ := strconv.ParseUint(b1, 10, 8)
+	b = Button(b2)
 	switch b {
 	case Button1Start:
 		fmt.Println("Start")
