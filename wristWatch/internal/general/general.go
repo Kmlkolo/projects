@@ -24,11 +24,11 @@ type Watch struct {
 }
 
 type Watch2 struct {
-	Mode [3]int(0,1,2)
+	Mode [3]int
 	Display string
 	Clock time.Time.Format(time.TimeOnly)
 	Stopwatch time.Time.Format(time.TimeOnly)
-	TImer time.Time.Format(time.TimeOnly)
+	Timer time.Time.Format(time.TimeOnly)
 }
 
 var W Watch

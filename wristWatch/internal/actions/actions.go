@@ -4,7 +4,7 @@ import (
 	"wristWatch/internal/general"
 )
 
-func (w Watch) Mode() {
+func (W *Watch) Mode() {
 	//gdzie ustawić wartości początkowe/fabryczne Mode:=0 - nie na początku funkcji przecież
 	general.M++
 	switch general.M {
