@@ -44,4 +44,4 @@ func main() {
 	// }
 }
 
-// CEL: chcę przełączać pomiędzy trzema pozycjami
+// GOAL: toggling between 3 modes. 1) make dynamic update effect 2) close range: 0-1-2->0...
