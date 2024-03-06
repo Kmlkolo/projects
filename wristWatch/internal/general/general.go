@@ -24,7 +24,7 @@ type Watch struct {
 }
 
 type Watch2 struct {
-	Mode [3]int
+	Mode int //int vs [3]int? I want to have range hardcoded in the class attribute
 	Display string
 	Clock time.Time.Format(time.TimeOnly)
 	Stopwatch time.Time.Format(time.TimeOnly)
