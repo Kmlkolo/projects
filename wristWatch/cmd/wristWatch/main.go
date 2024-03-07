@@ -2,9 +2,7 @@ package main
 
 import (
 	"fmt"
-	_ "wristWatch/internal/actions"
-	_ "wristWatch/internal/buttons"
-	_ "wristWatch/internal/general"
+	_ "wristWatch/internal/watch"
 )
 
 // var display Display = Display{
