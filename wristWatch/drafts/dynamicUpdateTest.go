@@ -20,7 +20,11 @@ func switchPlayer(plCh <-chan string, j, k, l *int) {
 			fmt.Printf("\033[A\033[2KLinda: %v", *l)
 			// fmt.Fprintf(os.Stdout, "\r")
 		case "points":
-			fmt.Printf("\033[A\033[2K----------\nJeremi: %v\nKacper: %v\nLinda: %v\n----------\n", *j, *k, *l)
+			fmt.Printf("\033[A\033[2K----------\n"+
+				"Jeremi: %v"+
+				"\nKacper: %v"+
+				"\nLinda: %v"+
+				"\n----------\n", *j, *k, *l)
 
 		default:
 			fmt.Printf("\rwrong input")
