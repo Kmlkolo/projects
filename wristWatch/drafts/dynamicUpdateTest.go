@@ -11,14 +11,17 @@ func switchPlayer(plCh <-chan string, j, k, l *int) {
 		switch pl {
 		case "j":
 			*j++
-			fmt.Printf("\033[A\033[2K Jeremi: %v\033[B", *j) //po value\033[2K
+			fmt.Printf("\033[A\033[2KJeremi: %v", *j)
 		case "k":
 			*k++
-			fmt.Fprintf(os.Stdout, "Kacper %v\r", *k) //input nadpisuje output, wysłanie inputa powoduje newline
+			fmt.Fprintf(os.Stdout, "\033[A\033[2KKacper: %v", *k)
 		case "l":
 			*l++
-			fmt.Printf("\rLinda: %v\r", *l)
+			fmt.Printf("\033[A\033[2KLinda: %v", *l)
 			// fmt.Fprintf(os.Stdout, "\r")
+		case "points":
+			fmt.Printf("\033[A\033[2K----------\nJeremi: %v\nKacper: %v\nLinda: %v\n----------\n", *j, *k, *l)
+
 		default:
 			fmt.Printf("\rwrong input")
 		}
@@ -30,7 +33,9 @@ var j, k, l int
 
 func main() {
 	var i string
-	fmt.Println("send one of the letters: j k l")
+	fmt.Println("To give a point to Jeremi, Kacper or Linda, send: j / k / l" +
+		"\nTo see the current state of points, send: points" +
+		"\nTo quit the program, send: exit")
 	plCh := make(chan string)
 
 	go switchPlayer(plCh, &j, &k, &l)
@@ -40,5 +45,3 @@ func main() {
 		plCh <- i
 	}
 }
-
-// 			fmt.Printf("Jeremi: %v\nKacper: %v\nLinda: %v\n", *j, *k, *l)
