@@ -21,7 +21,7 @@ var movies []Movie
 func main() {
 	r := mux.NewRouter()
 
-	movies = append(movies, Movie{ID: "1", Isbn: "18953", Title: "Movie One", &Director{Firstname: "John", Lastname: "Malcovic"}})
-	movies = append(movies, Movie{ID: "2", Isbn: "29045", Title: "Movie Two", &Director{Firstname: "Will", Lastname: "Smith"}})
+	movies = append(movies, Movie{ID: "1", Isbn: "18953", Title: "Movie One", Director: &Director{Firstname: "John", Lastname: "Malcovic"}})
+	movies = append(movies, Movie{ID: "2", Isbn: "29045", Title: "Movie Two", Director: &Director{Firstname: "Will", Lastname: "Smith"}})
 
 }
