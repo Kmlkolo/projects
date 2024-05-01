@@ -1,0 +1,45 @@
+Investment Fund Simulation, game ran on its own, with some customization later on.
+Python / JS ? Probably, Back: Python(Flask)+SQL, Front: JS
+
+The main class is Trader.
+
+class Trader {
+      trade() - random number with step of 100 from range defined by level of trust/scope of responsibility
+      trade_results[] - random percentage (-100%,+100%,10%)
+      day_result range(0,10) - 10 transactions per day (10 opens and closures)
+      month_result int - 30 days - maybe monthly result should be stored outside not to overload this class with data
+      affect_level() - +1/-1
+      level int (1,6)
+}
+
+const level {
+      1: 1k-5k
+      2: 5k-10k
+      3: 10k-20k
+      4: 20k-50k
+      5: 50k-100k
+}
+
+All results and current data are sent to SQL db.
+Table 1. Trader(PK), date(FK), investment_nr(opened+closed), invested_amount, result(+-%change), return(profit/loss)
+Table 2. "Personal results" date(PK), Trader, day_result, week_result, month_result, quarter_result, halfyear_result, year_result
+Table 3. "Company results" date(PK), company_day_result, company_week_result, etc. ... 
+
+Game goes on until there's a benchmark reached by the company in total profit or loss.
+
+Further development ideas:
+
+- CLI animation: dynamic printing of variables
+- intro/instruction text
+- customizable period between results assessment and level change
+(-) customizable ranges of investment amounts
+
+- moving the game from CLI to web
+- visual elements and animation added
+
+- more intelligent alghorythm for market response
+- ... for management
+- randomly fired defined market events affecting the alghorythm of market response (the probability of profit and of high level of profits)
+
+- balance, instead of trading figures "from the air"
+- employee cost, costs and profits of company, clients etc. etc.
