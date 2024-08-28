@@ -1,0 +1,18 @@
+{
+      "name": "simple-web-server-nodejs",
+      "version": "1.0.0",
+      "description": "",
+      "main": "app.mjs",
+      "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "repository": {
+            "type": "git",
+            "url": "https://github.com/kmowledge/projects/tree/main/simple-web-server-nodejs"
+      },
+      "author": "",
+      "license": "ISC",
+      "dependencies": {
+            "express": "^4.17.1"
+      }
+}
